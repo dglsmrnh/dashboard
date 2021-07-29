@@ -1,21 +1,68 @@
-
-// var carregaTabelas = function() {
-
-// 	var loadTables = function(){
-
-// 		$('#tabela').DataTable( {
-// 			responsive: true,
-// 			paging: false,
-// 		});
-// 	}
-
-// 	return {
-// 		init: function(){
-// 			loadTables();
-// 		}
-
-// 	}
-// }();
+// variavel que guarda um JSON
+var dados = [{
+		"id": "1",
+		"name": "Tiger Nixon",
+		"position": "System Architect",
+		"salary": "$320,800",
+		"start_date": "2011/04/25",
+		"office": "Edinburgh",
+		"extn": "5421"
+	},
+	{
+		"id": "1",
+		"name": "Tiger Nixon",
+		"position": "System Architect",
+		"salary": "$320,800",
+		"start_date": "2011/04/25",
+		"office": "Edinburgh",
+		"extn": "5421"
+	},
+	{
+		"id": "1",
+		"name": "Tiger Nixon",
+		"position": "System Architect",
+		"salary": "$320,800",
+		"start_date": "2011/04/25",
+		"office": "Edinburgh",
+		"extn": "5421"
+	},
+	{
+		"id": "1",
+		"name": "Tiger Nixon",
+		"position": "System Architect",
+		"salary": "$320,800",
+		"start_date": "2011/04/25",
+		"office": "Edinburgh",
+		"extn": "5421"
+	},
+	{
+		"id": "1",
+		"name": "Tiger Nixon",
+		"position": "Student",
+		"salary": "$320,800",
+		"start_date": "2011/04/25",
+		"office": "Edinburgh",
+		"extn": "5421"
+	},
+	{
+		"id": "1",
+		"name": "Tiger Nixon",
+		"position": "System Architect",
+		"salary": "$320,800",
+		"start_date": "2011/04/25",
+		"office": "Edinburgh",
+		"extn": "5421"
+	},
+	{
+		"id": "1",
+		"name": "Tiger Nixon",
+		"position": "System Architect",
+		"salary": "$320,800",
+		"start_date": "2011/04/25",
+		"office": "Edinburgh",
+		"extn": "5421"
+	}
+];
 
 // executa somente quando a pagina carrega
 $(document).ready(function(){
@@ -28,7 +75,8 @@ $(document).ready(function(){
 		responsive: true,
 		paging: true,
 		lengthChange: false,
-		ajax: "info.txt",
+		//ajax: "info.txt",	// busca arquivo ( só funciona se você estiver usando um servidor )
+		data: dados,
 		columns: [
 			{"data":"id"},
 			{"data":"name"},
@@ -80,7 +128,7 @@ $(document).ready(function(){
 
 
 	$('#tabela tbody').on('click', 'td > button', function () {
-
+		// quando clicar em um btão dentro da tabela é aberta uma tabela filha
 		console.log("FUNCIONOU")
         var tr = $(this).closest('tr');
 
