@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Meu dashboard</title>
+
+	<link rel="stylesheet" type="text/css" href="">
+
+	<!-- carrega Jquery -->
+	<script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>
+
+	<!-- carrega datatable -->
+	<link rel="stylesheet" type="text/css" href="assets/datatable/datatables.min.css">
+	<script type="text/javascript" src="assets/datatable/datatables.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/datatable/DataTables-1.10.25/css/dataTables.bootstrap5.min.css">
+	<script type="text/javascript" src="assets/datatable/DataTables-1.10.25/js/dataTables.bootstrap5.min.js"></script>
+
+	<!-- carrega Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+
+	<!-- constroi DataTables -->
+	<script type="text/javascript" src="assets/js/loadtable.js"></script>
+
+	<!-- carrega AmCharts 3 -->
+	<script type="text/javascript" src="assets/amcharts3/amcharts/amcharts.js"></script>
+	<script type="text/javascript" src="assets/amcharts3/amcharts/funnel.js"></script>
+	<script type="text/javascript" src="assets/amcharts3/amcharts/gantt.js"></script>
+	<script type="text/javascript" src="assets/amcharts3/amcharts/gauge.js"></script>
+	<script type="text/javascript" src="assets/amcharts3/amcharts/pie.js"></script>
+	<script type="text/javascript" src="assets/amcharts3/amcharts/radar.js"></script>
+	<script type="text/javascript" src="assets/amcharts3/amcharts/serial.js"></script>
+	<script type="text/javascript" src="assets/amcharts3/amcharts/xy.js"></script>
+
+	<!-- carrega extensões do AmCharts -->
+	<script type="text/javascript" src="assets/amcharts3/amcharts/plugins/export/export.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/amcharts3/amcharts/plugins/export/export.css">
+
+	<script type="text/javascript" src="assets/amcharts3/amcharts/plugins/dataloader/dataloader.min.js"></script>
+
+	<!-- constroi gráficos -->
+	<script type="text/javascript" src="assets/js/loadgraphs.js"></script>
+</head>
+<body>
+	<style type="text/css">
+		/*#tabela tbody{
+			background-color: #00f!important;
+		}*/
+	</style>
+	<div class="row">
+		<div class="col-sm-3 col-lg-12 p-5">
+			<table class="table nowrap table-hover" id="tabela" border="1" style="width: 100%">
+				<thead>
+					<tr>
+						<th>Header 1</th>
+						<th>Header 2</th>
+						<th>Header 3</th>
+						<th>Header 4</th>
+						<th>Header 5</th>
+						<th>#</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Row:1 Cell:1</td>
+						<td>Row:1 Cell:2</td>
+						<td>Row:1 Cell:3</td>
+						<td>Row:1 Cell:4</td>
+						<td>Row:1 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:1 Cell:1</td>
+						<td>Row:1 Cell:2</td>
+						<td>Row:1 Cell:3</td>
+						<td>Row:2 Cell:4</td>
+						<td>Row:2 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:3 Cell:1</td>
+						<td>Row:3 Cell:2</td>
+						<td>Row:3 Cell:3</td>
+						<td>Row:3 Cell:4</td>
+						<td>Row:3 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:4 Cell:1</td>
+						<td>Row:4 Cell:2</td>
+						<td>Row:4 Cell:3</td>
+						<td>Row:4 Cell:4</td>
+						<td>Row:4 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:5 Cell:1</td>
+						<td>Row:5 Cell:2</td>
+						<td>Row:5 Cell:3</td>
+						<td>Row:5 Cell:4</td>
+						<td>Row:5 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:6 Cell:1</td>
+						<td>Row:6 Cell:2</td>
+						<td>Row:6 Cell:3</td>
+						<td>Row:6 Cell:4</td>
+						<td>Row:6 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:7 Cell:1</td>
+						<td>Row:7 Cell:2</td>
+						<td>Row:7 Cell:3</td>
+						<td>Row:7 Cell:4</td>
+						<td>Row:7 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:8 Cell:1</td>
+						<td>Row:8 Cell:2</td>
+						<td>Row:8 Cell:3</td>
+						<td>Row:8 Cell:4</td>
+						<td>Row:8 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:9 Cell:1</td>
+						<td>Row:9 Cell:2</td>
+						<td>Row:9 Cell:3</td>
+						<td>Row:9 Cell:4</td>
+						<td>Row:9 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:10 Cell:1</td>
+						<td>Row:10 Cell:2</td>
+						<td>Row:10 Cell:3</td>
+						<td>Row:10 Cell:4</td>
+						<td>Row:10 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:11 Cell:1</td>
+						<td>Row:11 Cell:2</td>
+						<td>Row:11 Cell:3</td>
+						<td>Row:11 Cell:4</td>
+						<td>Row:11 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:12 Cell:1</td>
+						<td>Row:12 Cell:2</td>
+						<td>Row:12 Cell:3</td>
+						<td>Row:12 Cell:4</td>
+						<td>Row:12 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:13 Cell:1</td>
+						<td>Row:13 Cell:2</td>
+						<td>Row:13 Cell:3</td>
+						<td>Row:13 Cell:4</td>
+						<td>Row:13 Cell:5</td>
+					</tr>
+					<tr>
+						<td>Row:14 Cell:1</td>
+						<td>Row:14 Cell:2</td>
+						<td>Row:14 Cell:3</td>
+						<td>Row:14 Cell:4</td>
+						<td>Row:14 Cell:5</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-11 mx-1" style="min-height: 400px;" id="column_graph">
+			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-11 mx-1" style="min-height: 400px;" id="pizza">
+			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-11 mx-1" style="min-height:400px" id="linha"></div>
+	</div>
+</body>
+</html>

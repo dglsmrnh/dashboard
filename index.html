@@ -1,181 +1,264 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Meu dashboard</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>COVID-19</title>
 
-	<link rel="stylesheet" type="text/css" href="">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
-	<!-- carrega Jquery -->
-	<script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>
+    
 
-	<!-- carrega datatable -->
-	<link rel="stylesheet" type="text/css" href="assets/datatable/datatables.min.css">
-	<script type="text/javascript" src="assets/datatable/datatables.min.js"></script>
+    <!-- carrega Jquery -->
+    <script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="assets/datatable/DataTables-1.10.25/css/dataTables.bootstrap5.min.css">
-	<script type="text/javascript" src="assets/datatable/DataTables-1.10.25/js/dataTables.bootstrap5.min.js"></script>
+    <!-- carrega datatable -->
+    <link rel="stylesheet" type="text/css" href="assets/datatable/datatables.min.css">
+    <script type="text/javascript" src="assets/datatable/datatables.min.js"></script>
 
-	<!-- carrega Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-	<script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/datatable/DataTables-1.10.25/css/dataTables.bootstrap5.min.css">
+    <script type="text/javascript" src="assets/datatable/DataTables-1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
-	<!-- constroi DataTables -->
-	<script type="text/javascript" src="assets/js/loadtable.js"></script>
+    <!-- carrega Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
 
-	<!-- carrega AmCharts 3 -->
-	<script type="text/javascript" src="assets/amcharts3/amcharts/amcharts.js"></script>
-	<script type="text/javascript" src="assets/amcharts3/amcharts/funnel.js"></script>
-	<script type="text/javascript" src="assets/amcharts3/amcharts/gantt.js"></script>
-	<script type="text/javascript" src="assets/amcharts3/amcharts/gauge.js"></script>
-	<script type="text/javascript" src="assets/amcharts3/amcharts/pie.js"></script>
-	<script type="text/javascript" src="assets/amcharts3/amcharts/radar.js"></script>
-	<script type="text/javascript" src="assets/amcharts3/amcharts/serial.js"></script>
-	<script type="text/javascript" src="assets/amcharts3/amcharts/xy.js"></script>
+    <!-- carrega AmCharts 3 -->
+    <script type="text/javascript" src="assets/amcharts3/amcharts/amcharts.js"></script>
+    <script type="text/javascript" src="assets/amcharts3/amcharts/funnel.js"></script>
+    <script type="text/javascript" src="assets/amcharts3/amcharts/gantt.js"></script>
+    <script type="text/javascript" src="assets/amcharts3/amcharts/gauge.js"></script>
+    <script type="text/javascript" src="assets/amcharts3/amcharts/pie.js"></script>
+    <script type="text/javascript" src="assets/amcharts3/amcharts/radar.js"></script>
+    <script type="text/javascript" src="assets/amcharts3/amcharts/serial.js"></script>
+    <script type="text/javascript" src="assets/amcharts3/amcharts/xy.js"></script>
 
-	<!-- carrega extensões do AmCharts -->
-	<script type="text/javascript" src="assets/amcharts3/amcharts/plugins/export/export.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="assets/amcharts3/amcharts/plugins/export/export.css">
+    <!-- carrega extensões do AmCharts -->
+    <script type="text/javascript" src="assets/amcharts3/amcharts/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/amcharts3/amcharts/plugins/export/export.css">
 
-	<script type="text/javascript" src="assets/amcharts3/amcharts/plugins/dataloader/dataloader.min.js"></script>
+    <script type="text/javascript" src="assets/amcharts3/amcharts/plugins/dataloader/dataloader.min.js"></script>
 
-	<!-- constroi gráficos -->
-	<script type="text/javascript" src="assets/js/loadgraphs.js"></script>
-</head>
-<body>
-	<style type="text/css">
-		/*#tabela tbody{
-			background-color: #00f!important;
-		}*/
-	</style>
-	<div class="row">
-		<div class="col-sm-3 col-lg-12 p-5">
-			<table class="table nowrap table-hover" id="tabela" border="1" style="width: 100%">
-				<thead>
-					<tr>
-						<th>Header 1</th>
-						<th>Header 2</th>
-						<th>Header 3</th>
-						<th>Header 4</th>
-						<th>Header 5</th>
-						<th>#</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Row:1 Cell:1</td>
-						<td>Row:1 Cell:2</td>
-						<td>Row:1 Cell:3</td>
-						<td>Row:1 Cell:4</td>
-						<td>Row:1 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:1 Cell:1</td>
-						<td>Row:1 Cell:2</td>
-						<td>Row:1 Cell:3</td>
-						<td>Row:2 Cell:4</td>
-						<td>Row:2 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:3 Cell:1</td>
-						<td>Row:3 Cell:2</td>
-						<td>Row:3 Cell:3</td>
-						<td>Row:3 Cell:4</td>
-						<td>Row:3 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:4 Cell:1</td>
-						<td>Row:4 Cell:2</td>
-						<td>Row:4 Cell:3</td>
-						<td>Row:4 Cell:4</td>
-						<td>Row:4 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:5 Cell:1</td>
-						<td>Row:5 Cell:2</td>
-						<td>Row:5 Cell:3</td>
-						<td>Row:5 Cell:4</td>
-						<td>Row:5 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:6 Cell:1</td>
-						<td>Row:6 Cell:2</td>
-						<td>Row:6 Cell:3</td>
-						<td>Row:6 Cell:4</td>
-						<td>Row:6 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:7 Cell:1</td>
-						<td>Row:7 Cell:2</td>
-						<td>Row:7 Cell:3</td>
-						<td>Row:7 Cell:4</td>
-						<td>Row:7 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:8 Cell:1</td>
-						<td>Row:8 Cell:2</td>
-						<td>Row:8 Cell:3</td>
-						<td>Row:8 Cell:4</td>
-						<td>Row:8 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:9 Cell:1</td>
-						<td>Row:9 Cell:2</td>
-						<td>Row:9 Cell:3</td>
-						<td>Row:9 Cell:4</td>
-						<td>Row:9 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:10 Cell:1</td>
-						<td>Row:10 Cell:2</td>
-						<td>Row:10 Cell:3</td>
-						<td>Row:10 Cell:4</td>
-						<td>Row:10 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:11 Cell:1</td>
-						<td>Row:11 Cell:2</td>
-						<td>Row:11 Cell:3</td>
-						<td>Row:11 Cell:4</td>
-						<td>Row:11 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:12 Cell:1</td>
-						<td>Row:12 Cell:2</td>
-						<td>Row:12 Cell:3</td>
-						<td>Row:12 Cell:4</td>
-						<td>Row:12 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:13 Cell:1</td>
-						<td>Row:13 Cell:2</td>
-						<td>Row:13 Cell:3</td>
-						<td>Row:13 Cell:4</td>
-						<td>Row:13 Cell:5</td>
-					</tr>
-					<tr>
-						<td>Row:14 Cell:1</td>
-						<td>Row:14 Cell:2</td>
-						<td>Row:14 Cell:3</td>
-						<td>Row:14 Cell:4</td>
-						<td>Row:14 Cell:5</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-11 mx-1" style="min-height: 400px;" id="column_graph">
-			
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-11 mx-1" style="min-height: 400px;" id="pizza">
-			
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-11 mx-1" style="min-height:400px" id="linha"></div>
-	</div>
-</body>
+    <!-- constroi gráficos e tabelas -->
+    <script type="text/javascript" src="assets/js/covid.js"></script>
+  
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="assets/css/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">COVID-19</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Confirmados</span>
+        </h6>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#id_brasil_contaminados">
+              <span data-feather="bar-chart-2"></span>
+              Brasil
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#id_estados_contaminados">
+              <span data-feather="pie-chart"></span>
+              Estados
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#id_cidades_confirmados">
+              <span data-feather="grid"></span>
+              Cidades
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Comparação</span>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#id_brasil_comp">
+              <span data-feather="bar-chart-2"></span>
+              Brasil
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#id_estados_comp">
+              <span data-feather="pie-chart"></span>
+              Estados
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        <h1 class="h2" id="brasil_contaminados">Filtros</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <!-- <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          </div> -->
+          <button type="button" class="btn btn-outline-secondary" id="id_btn_filtro">
+            <span data-feather="filter"></span>
+            Filtrar
+          </button>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <form id="filtro">
+        <div class="row">
+          <label class="form-label">Período</label>
+          <div class="col-12 col-sm-6">
+            <input type="date" name="data_inicial" id="data_inicial" class="form-control" value="2021-07-23">
+            <div class="form-text">Período - De</div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <input type="date" name="data_final" id="data_final" class="form-control" value="2021-07-23">
+            <div class="form-text">Período - Até</div>
+          </div>
+        </div>
+        </form>
+      </div>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        <h1 class="h2" id="id_brasil_contaminados">
+          Brasil 
+          <span class="text-muted h6">confirmados</span>
+        </h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <!-- <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          </div> -->
+
+        </div>
+      </div>
+
+      <div style="min-height: 380px;" id="id_grafico_linha_br_confirmado">
+      </div>
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        <h1 class="h2" id="id_estados_contaminados">
+          Estados
+          <span class="text-muted h6">confirmados</span>
+        </h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <!-- <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          </div> -->
+
+        </div>
+      </div>
+
+      <div style="min-height: 380px;" id="id_grafico_coluna_estados_confirmado"></div>
+
+      <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+
+      <div id="id_cidades_confirmados" style="display:none;">
+        <h2>
+          Cidades 
+          <span class="text-muted h6">confirmados</span>
+        </h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover" id="id_tabela_cidades_confirmados" width="100%">
+            <thead>
+              <tr>
+                <th scope="col">Cidade</th>
+                <th scope="col">Habitantes</th>
+                <th scope="col">Confirmados</th>
+                <th scope="col">% de infectados</th>
+              </tr>
+            </thead>
+            <tbody>
+      
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        <h1 class="h2" id="id_brasil_comp">
+          Brasil 
+          <span class="text-muted h6">comparação</span>
+        </h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <!-- <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          </div> -->
+
+        </div>
+      </div>
+
+      <div style="min-height: 380px;" id="id_grafico_linha_br_comp">
+      </div>
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        <h1 class="h2" id="id_estados_comp">
+          Estados
+          <span class="text-muted h6">comparação</span>
+        </h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <!-- <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          </div> -->
+
+        </div>
+      </div>
+
+      <div style="min-height: 380px;" id="id_grafico_estados_comp"></div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+
+    <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
+
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+
+      <script type="text/javascript">
+        feather.replace({ 'aria-hidden': 'true' })
+      </script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="assets/js/dashboard.js"></script> -->
+  </body>
 </html>
